@@ -1,5 +1,6 @@
 package com.example.recyclerview
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : BaseActivity() {
 
     private lateinit var recyclerView: RecyclerView
+
     private val items = mutableListOf<WardrobeItem>(
         WardrobeItem(R.drawable.shirt, "Рубашка", "Классическая рубашка"),
         WardrobeItem(R.drawable.jacket, "Куртка", "Легкая куртка"),
@@ -42,7 +44,17 @@ class MainActivity : BaseActivity() {
         initViews()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = WardrobeAdapter(items)
+        val adapter = WardrobeAdapter(items)
+        recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
+        adapter.setOnItemClickListener(
+            object : WardrobeAdapter.OnItemClickListener {
+                override fun onItemClick(item: WardrobeItem, position: Int) {
+                    val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                    intent.putExtra("item", item)
+                    startActivity(intent)
+                }
+            })
     }
 
     //Инициализация
