@@ -1,26 +1,33 @@
 package com.example.recyclerview
 
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : BaseActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupWindowInsets(R.id.main)
-        setupToolbar(R.id.toolbar, false)
+        setupToolbar(R.id.toolbar, true)
 
         initViews()
-        setupListeners()
+
+        val items = List(20) { index ->
+            WardrobeItem(R.drawable.sample, "Элемент $index", "Описание элемента $index")
+        }
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = WardrobeAdapter(items)
     }
 
     //Инициализация
     private fun initViews() {
-        /*addBTN = findViewById(R.id.addBTN)
-        clearBTN = findViewById(R.id.clearBTN)
-        nameET = findViewById(R.id.nameET)
-        weightET = findViewById(R.id.weightET)
-        priceET = findViewById(R.id.priceET)
-        goodsLV = findViewById(R.id.goodsLV)*/
+        recyclerView = findViewById(R.id.wardrobe_recycler_view)
     }
 
     //Слушатели нажатия

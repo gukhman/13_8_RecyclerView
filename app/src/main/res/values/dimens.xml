@@ -5,4 +5,5 @@
     <dimen name="textSize">20sp</dimen>
     <dimen name="minWidthET">150sp</dimen>
     <dimen name="defPadding">8dp</dimen>
+    <dimen name="image_width">64dp</dimen>
 </resources>

@@ -2,4 +2,7 @@
     <string name="app_name">13_8_RecyclerView</string>
     <string name="exit">Выход</string>
     <string name="toolbarTitle">Мой гардероб</string>
+    <string name="item_image_desc">Описание изображения</string>
+    <string name="item_title_text">Наименование</string>
+    <string name="item_description_hint">Описание</string>
 </resources>
