@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">13_8_RecyclerView</string>
+    <string name="exit">Выход</string>
+    <string name="toolbarTitle">Мой гардероб</string>
+</resources>
